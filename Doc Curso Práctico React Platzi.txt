@@ -1,12 +1,51 @@
-﻿Agregando Compatibilidad con Babel
+﻿Webpack: Empaquetando nuestros módulos
+"Webpack es una herramienta que nos ayuda a compilar multiples archivos (JavaScript, HTML, CSS, imágenes) en uno solo (o a veces un poco más) que tendrá todo nuestro código listo para producción.
 
-Babel herramienta para llevar Js moderno a Js que pueda ser usado en todos
-los navegadores
+Instalación de Webpack y algunos plugins:
 
-npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
+npm install webpack webpack-cli html-webpack-plugin html-loader  --save-dev
+Configuración de Webpack (webpack.config.js):
 
-crear el .babelrc
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-babel core traductor a modern code
-babel loader -> babel webpack
-presets ->>> traducir js y react
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js',
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
+  },
+  module: {
+    rules: [
+      {
+        test: /\.(js|jsx)$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+        },
+      },
+      {
+        test: /\.html$/,
+        use: {
+          loader: 'html-loader',
+        },
+      },
+    ],
+  },
+  plugins: [
+    new HtmlWebpackPlugin({
+      template: './public/index.html',
+      filename: './index.html',
+    }),
+  ],
+};
+Script para ejecutar las tareas de Webpack (package.json):
+
+{
+  ""scripts"": {
+    ""build"": ""webpack --mode production""
+  },
+}
