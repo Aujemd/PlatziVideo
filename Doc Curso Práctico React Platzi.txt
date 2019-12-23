@@ -1,3 +1,1 @@
-﻿Creando el Search se creo el componente search 
-dentro de src/components/Search.jsx
-y se creo los estylos dentro de src/assets/styles/components/Search.scss
+﻿Se creo estructura y estilos de Carousel y Carousel Item
