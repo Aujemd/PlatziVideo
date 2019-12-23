@@ -1,4 +1,3 @@
-﻿Agregando estilos del header 
-
-Se creo la carpeta Components dentro de /assets/styles/Components
-y se creo Header.scss y por fuera se creo en la root de styles el App.scss
+﻿Creando el Search se creo el componente search 
+dentro de src/components/Search.jsx
+y se creo los estylos dentro de src/assets/styles/components/Search.scss
