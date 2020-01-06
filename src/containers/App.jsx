@@ -4,6 +4,8 @@ import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
+import Footer from '../components/Footer';
+
 import '../assets/styles/App.scss'; //Importando los estilos de este componente
 
 const App = () => (
@@ -17,6 +19,7 @@ const App = () => (
                 <CarouselItem></CarouselItem>
                 <CarouselItem></CarouselItem>
                 <CarouselItem></CarouselItem>
+                <Footer></Footer>
             </Carousel>
         </Categories>
     </div>
