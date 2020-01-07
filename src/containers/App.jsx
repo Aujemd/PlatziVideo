@@ -12,7 +12,27 @@ const App = () => (
     <div className="App">
         <Header></Header>
         <Search></Search>
-        <Categories>
+        <Categories title="Mi lista">
+            <Carousel>
+                <CarouselItem></CarouselItem>
+                <CarouselItem></CarouselItem>
+                <CarouselItem></CarouselItem>
+                <CarouselItem></CarouselItem>
+                <CarouselItem></CarouselItem>
+                <Footer></Footer>
+            </Carousel>
+        </Categories>
+        <Categories title="Tendencias">
+            <Carousel>
+                <CarouselItem></CarouselItem>
+                <CarouselItem></CarouselItem>
+                <CarouselItem></CarouselItem>
+                <CarouselItem></CarouselItem>
+                <CarouselItem></CarouselItem>
+                <Footer></Footer>
+            </Carousel>
+        </Categories>
+        <Categories title="Originales de Platzi Videos">
             <Carousel>
                 <CarouselItem></CarouselItem>
                 <CarouselItem></CarouselItem>

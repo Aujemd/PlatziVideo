@@ -35,7 +35,16 @@ module.exports = { //Creando un nuevo modulo que vamos a exportar
                   'css-loader',
                   'sass-loader',
                 ],
-              }
+            },
+            {
+                test: /\.(png|gif|jpg|svg)$/, //Regla para tratar archivos multimedia que van a ser importados
+                use: {
+                  loader: 'file-loader',
+                  options: {
+                    name: 'assets/[hash].[ext]',//Configurando como se llaman nuestros archivos que vamos a manejar que son multimedia, por defecto el webpack le pone un hash y su ext
+                  },
+                },
+            }
         ]
     },
 

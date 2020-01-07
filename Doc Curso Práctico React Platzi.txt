@@ -1,1 +1,6 @@
-﻿Se creo estructura y estilos de Carousel y Carousel Item
+﻿Añadiendo imágenes con Webpack
+
+npm install file-loader --save-dev
+
+Se modifico el webpack config y se creo la carpeta static dentro de assets para poder trabajar con los archivos multimedia en react
+y de esta manera poder trabajar mejor
