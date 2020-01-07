@@ -1,4 +1,10 @@
-﻿Imports, Variables y Fuentes de Google en Sass
+﻿Creando una Fake API
 
-Se Crearon los archivos para importar por aparte las variables las fuentes  y los mediaquerys en Sass
-archivos Media.scss Search.scss y Vars.scss todos importandos en el main App.scss
+Creamos el archivo initialState.json
+
+luego
+
+npm install json-server -g
+
+luego levatnando el API
+json-server initialState.json
