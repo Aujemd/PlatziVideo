@@ -1,6 +1,4 @@
-﻿Añadiendo imágenes con Webpack
+﻿Imports, Variables y Fuentes de Google en Sass
 
-npm install file-loader --save-dev
-
-Se modifico el webpack config y se creo la carpeta static dentro de assets para poder trabajar con los archivos multimedia en react
-y de esta manera poder trabajar mejor
+Se Crearon los archivos para importar por aparte las variables las fuentes  y los mediaquerys en Sass
+archivos Media.scss Search.scss y Vars.scss todos importandos en el main App.scss
