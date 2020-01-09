@@ -1,10 +1,12 @@
-﻿Creando una Fake API
+﻿React hooks: useEffect y useState
 
-Creamos el archivo initialState.json
+Esta implementacion nos da estado y ciclo de vida a nuestros componentes
+funcion staless.
 
-luego
+La gente se complicaba con las clases y el binding de funciones
 
-npm install json-server -g
+Se complicaba el comunicado de props entre componentes muy distantes
 
-luego levatnando el API
-json-server initialState.json
+Solo disponible en la V 16.8
+
+Vamos a App.jsx y lo modificamos
