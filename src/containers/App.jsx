@@ -18,43 +18,34 @@ const App = () => {
         .then(data => setVideos(data));//La data de la respuesta en json se la pasa a la funcion setVideos del estado
     }, []);//parametro de useEffect
 
-    console.log('====================================');
     console.log(videos);
-    console.log('====================================');
+    console.log(videos.trends.length);
     return (
     <div className="App">
         <Header></Header>
         <Search></Search>
-        <Categories title="Mi lista">
+        {
+            videos.myList.length > 0 &&
+            <Categories title="Mi lista">
             <Carousel>
                 <CarouselItem></CarouselItem>
-                <CarouselItem></CarouselItem>
-                <CarouselItem></CarouselItem>
-                <CarouselItem></CarouselItem>
-                <CarouselItem></CarouselItem>
-                <Footer></Footer>
             </Carousel>
         </Categories>
+        }
         <Categories title="Tendencias">
             <Carousel>
-                <CarouselItem></CarouselItem>
-                <CarouselItem></CarouselItem>
-                <CarouselItem></CarouselItem>
-                <CarouselItem></CarouselItem>
-                <CarouselItem></CarouselItem>
-                <Footer></Footer>
+                {
+                    videos.trends.map(item => <CarouselItem key = {item.id} {...item}></CarouselItem>)
+                }
             </Carousel>
         </Categories>
         <Categories title="Originales de Platzi Videos">
             <Carousel>
                 <CarouselItem></CarouselItem>
-                <CarouselItem></CarouselItem>
-                <CarouselItem></CarouselItem>
-                <CarouselItem></CarouselItem>
-                <CarouselItem></CarouselItem>
-                <Footer></Footer>
+            
             </Carousel>
         </Categories>
+        <Footer></Footer>
     </div>
 );
 }
