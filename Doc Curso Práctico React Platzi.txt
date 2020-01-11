@@ -1,5 +1,3 @@
-﻿Debuggeando React con React DevTools
-React DevTools es una herramienta muy parecida al Inspector de Elementos. Nos permite visualizar, analizar e interactuar con nuestros componentes de React desde el navegador.
+﻿Instalar Router
 
-Encuentra más información sobre está herramienta en: github.com/facebook/react-devtools.
-
+npm install react-router-dom --save
