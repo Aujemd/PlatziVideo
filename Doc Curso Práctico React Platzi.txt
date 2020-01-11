@@ -1,3 +1,5 @@
 ﻿Instalar Router
 
 npm install react-router-dom --save
+
+Crear el archivo routes el archivo app y el app de container cambiarlo a home

@@ -10,7 +10,7 @@ import useInitialState from '../hooks/useInitialState'; //Importando Hook
 import '../assets/styles/App.scss'; //Importando los estilos de este componente
 
 const API = 'http://localhost:3000/initalState';
-const App = () => {
+const Home = () => {
 
   const initialState = useInitialState(API);
 
@@ -45,4 +45,4 @@ const App = () => {
     </div>
   );
 };
-export default App;
+export default Home;
