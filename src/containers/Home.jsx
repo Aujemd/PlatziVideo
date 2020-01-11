@@ -1,28 +1,23 @@
 import React, { useState, useEffect } from 'react'; //Use State para manejo de estado y effect para las trasmisiones hacer peticiones a un api o escuchar cambios de otras trasmiones entrantes
-import Header from '../components/Header';
+import {connect} from 'react-redux';
 import Search from '../components/Search';
 import Categories from '../components/Categories';
 import Carousel from '../components/Carousel';
 import CarouselItem from '../components/CarouselItem';
-import Footer from '../components/Footer';
 import useInitialState from '../hooks/useInitialState'; //Importando Hook
 
 import '../assets/styles/App.scss'; //Importando los estilos de este componente
 
-const API = 'http://localhost:3000/initalState';
-const Home = () => {
-
-  const initialState = useInitialState(API);
-
-
-  return initialState.length === 0 ? <h1>Loading ... </h1> :(
+const Home = ({ myList, trends, originals }) => {
+  return(
     <>
-    
       <Search />
-      {initialState.mylist.length > 0 &&
+      {myList.length > 0 &&
        <Categories title='Mi lista'>
        <Carousel>
-         <CarouselItem />
+         {
+           myList.map(item => <CarouselItem key = {item.id} {...item}/>)
+         }
        </Carousel>
      </Categories>
       }
@@ -30,14 +25,14 @@ const Home = () => {
       <Categories title='Tendencias'>
         <Carousel>
           {
-            initialState.trends.map((item) => <CarouselItem key = {item.id} {...item}></CarouselItem>)
+            trends.map((item) => <CarouselItem key = {item.id} {...item}></CarouselItem>)
           }
         </Carousel>
       </Categories>
       <Categories title='Originales de Platzi Videos'>
         <Carousel>
           {
-            initialState.originals.map((item) => <CarouselItem key = {item.id} {...item}/>)
+            originals.map((item) => <CarouselItem key = {item.id} {...item}/>)
           }
         </Carousel>
       </Categories>
@@ -45,4 +40,13 @@ const Home = () => {
     </>
   );
 };
-export default Home;
+
+const mapStateToProps = state => { //Mapeando del state principal de redux los elementos del estado a las propiedades de este componente
+  return {
+    myList: state.myList,
+    trends: state.trends,
+    originals: state.originals,
+  };
+};
+
+export default connect(mapStateToProps, null)(Home); //Exportando componente conectado al provider de redux para poder acceder a su estado
