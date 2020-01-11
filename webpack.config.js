@@ -47,7 +47,10 @@ module.exports = { //Creando un nuevo modulo que vamos a exportar
             }
         ]
     },
-
+    devServer:{
+        historyApiFallback: true
+    },//Configuración para encargarse de devserver para el manejo de rutas
+    
     plugins: [
         new HtmlWebPackPlugin({
             template: './public/index.html',
