@@ -6,7 +6,8 @@ module.exports = { //Creando un nuevo modulo que vamos a exportar
     entry: './src/index.js', //Entrada principal
     output: {//Donde quedan los archivos resultantes despues del compilación
         path: path.resolve(__dirname, 'dist'), //Detectar donde el dir donde estamos y el dir a donde queremos que bote los archivos
-        filename: 'bundle.js'
+        filename: 'bundle.js',
+        publicPath: '/', //Aqui es donde webpack va a botar todos los compilados
     },
     resolve: {
         extensions: ['.js', '.jsx']
