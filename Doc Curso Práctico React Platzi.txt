@@ -1,3 +1,17 @@
-﻿OJO para classnames
+﻿Debug con Redux Devtools
+Redux Dev Tools nos va a servir mucho para entender mejor el flujo de nuestra información en nuestra aplicación y poder realizar debugging de manera sencilla.
 
-npm install classnames --save
+Solamente necesitas instalar la extensión según el navegador que tengas:
+
+Chrome
+Firefox
+Una vez instalado dentro de nuestro index.js vamos a añadir el siguiente código:
+
+// importamos compose  
+import { createStore, compose } from ‘redux’;  
+...  
+  
+  
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose  
+  
+const store = createStore(reducer, initialState, composeEnhancers  
