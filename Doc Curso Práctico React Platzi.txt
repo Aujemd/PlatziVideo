@@ -1,3 +1,3 @@
-﻿Creando un sevicio para gravatar
+﻿OJO para classnames
 
-npm i md5 --save
+npm install classnames --save
