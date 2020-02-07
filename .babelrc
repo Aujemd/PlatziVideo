@@ -3,5 +3,14 @@
         "@babel/preset-env",//Sirve para usar ECM5 - 6
         "@babel/preset-react",//Sirve para usar JSX y react
 
-    ]
+    ],
+    "env":{
+        "development":{
+            "plugins":[
+                "transform-class-properties",//Para poder usar classname en jsx sin problemas
+                "react-hot-loader/babel",//Para agregar carga dinamica al proyecto
+                "babel-plugintransform-object-assing",//
+            ]
+        }
+    }
 }

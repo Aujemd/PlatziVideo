@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const autoprefixer = require('autoprefixer')
 
 module.exports = { //Creando un nuevo modulo que vamos a exportar
     entry: './src/frontend/index.js', //Entrada principal
@@ -37,6 +38,7 @@ module.exports = { //Creando un nuevo modulo que vamos a exportar
                   { loader: MiniCssExtractPlugin.loader },
                   'css-loader',
                   'sass-loader',
+                  'postcss-loader',
                 ],
             },
             {
@@ -55,6 +57,13 @@ module.exports = { //Creando un nuevo modulo que vamos a exportar
     },//Configuración para encargarse de devserver para el manejo de rutas
     
     plugins: [
+        new HtmlWebPackPlugin.LoaderOptionsPlugin({
+            options:{
+                postcss:[
+                    autoprefixer(), 
+                ]
+            }
+        }),
         new HtmlWebPackPlugin({
             template: './public/index.html',
             filename: './index.html'
