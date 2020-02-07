@@ -1,5 +1,3 @@
-﻿Creacion del proyecto base
+﻿Configuracion de ESlint con Webpack
 
-npm i @babel/register --exact
-npm i express dotenv --exact
-npm i nodemon --exact
+npm i babel-eslint eslint eslint-config-airbnb eslint-plugin-jsx-a11y eslint-loader eslint-plugin-import eslint-plugin-react

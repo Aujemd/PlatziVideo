@@ -3,7 +3,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = { //Creando un nuevo modulo que vamos a exportar
-    entry: './src/index.js', //Entrada principal
+    entry: './src/frontend/index.js', //Entrada principal
     output: {//Donde quedan los archivos resultantes despues del compilación
         path: path.resolve(__dirname, 'dist'), //Detectar donde el dir donde estamos y el dir a donde queremos que bote los archivos
         filename: 'bundle.js',
@@ -17,8 +17,10 @@ module.exports = { //Creando un nuevo modulo que vamos a exportar
             {
                 test: /\.(js|jsx)$/,
                 exclude: /node_modules/,
+                enforce: 'pre', //va a ejecutar eslint y no deja compilar hasta que se fixeen los errores de eslint
                 use: {
-                    loader: "babel-loader"
+                    loader: "eslint-loader",
+                    loader: "babel-loader",
                 }
             },
             {

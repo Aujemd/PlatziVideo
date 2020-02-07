@@ -6,8 +6,9 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --open --mode development",
-    "start:dev": "nodemon src/server/index.js --exact babel-node"
+    "start": "webpack-dev-server src/frontend/index.js --open --mode development",
+    "start:dev": "nodemon src/server/index.js --exact babel-node",
+    "start:fix": "eslint --fix src/frontend"
   },
   "keywords": [],
   "author": "",
@@ -16,6 +17,7 @@
     "@babel/register": "^7.8.3",
     "classnames": "^2.2.6",
     "dotenv": "^8.2.0",
+    "eslint-loader": "^3.0.3",
     "express": "^4.17.1",
     "md5": "^2.2.1",
     "nodemon": "^2.0.2",
@@ -35,9 +37,9 @@
     "css-loader": "^3.4.0",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
-    "eslint-plugin-import": "^2.19.1",
+    "eslint-plugin-import": "^2.20.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react": "^7.18.3",
     "file-loader": "^5.0.2",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
