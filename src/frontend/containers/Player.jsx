@@ -2,7 +2,7 @@ import React, {useEffect} from 'react';
 import {connect} from 'react-redux';
 import '../assets/styles/components/Player.scss'
 import {getVideosSource} from '../actions';
-import NotFound from '../containers/NotFound';
+import NotFound from './NotFound';
 
 const Player = props => {
 
