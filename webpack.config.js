@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer')
+const webpack = require('webpack')
 
 module.exports = { //Creando un nuevo modulo que vamos a exportar
     entry: './src/frontend/index.js', //Entrada principal
@@ -12,6 +13,28 @@ module.exports = { //Creando un nuevo modulo que vamos a exportar
     },
     resolve: {
         extensions: ['.js', '.jsx']
+    },
+    optimization:{
+        splitChunks: {
+            chunks: 'async',
+            name: true,
+            cacheGroups:{
+                vendors: {
+                    name: 'vendors',
+                    chunks: 'all',
+                    reuseExistingChunk: true,
+                    priority: 1,
+                    filename: 'assets/vendor.js',
+                    enforce: true,
+                    test(module, chunks){
+                        const name = module.nameForCondition && module.nameForCondition()
+                        return chunks.some(chunks => {
+                            chunks.name !== 'vendor' && /[\\/]node_modules[\\/]/.test(name)
+                        })
+                    }
+                }
+            },
+        }
     },
     module:{
         rules:[
@@ -57,7 +80,8 @@ module.exports = { //Creando un nuevo modulo que vamos a exportar
     },//Configuración para encargarse de devserver para el manejo de rutas
     
     plugins: [
-        new HtmlWebPackPlugin.LoaderOptionsPlugin({
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.LoaderOptionsPlugin({
             options:{
                 postcss:[
                     autoprefixer(), 

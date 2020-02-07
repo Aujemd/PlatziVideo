@@ -1,3 +1,6 @@
-﻿Configuracion de ESlint con Webpack
+﻿Integracion de Webpack con Express
 
-npm i babel-eslint eslint eslint-config-airbnb eslint-plugin-jsx-a11y eslint-loader eslint-plugin-import eslint-plugin-react
+npm install webpack-dev-middleware --save-dev
+
+npm install --save-dev webpack-hot-middleware
+

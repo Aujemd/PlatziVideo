@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
     "start": "webpack-dev-server src/frontend/index.js --open --mode development",
-    "start:dev": "nodemon src/server/index.js --exact babel-node",
+    "start:dev": "NODE_ENV=development nodemon src/server/index.js --exact babel-node",
     "start:fix": "eslint --fix src/frontend"
   },
   "keywords": [],
@@ -15,6 +15,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/register": "^7.8.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
     "classnames": "^2.2.6",
     "dotenv": "^8.2.0",
     "eslint-loader": "^3.0.3",
@@ -24,14 +25,17 @@
     "prop-types": "^15.7.2",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-hot-loader": "^4.12.19",
     "react-redux": "^7.1.3",
     "react-router-dom": "^5.1.2",
     "redux": "^4.0.5"
   },
   "devDependencies": {
     "@babel/core": "^7.7.7",
+    "@babel/plugin-transform-object-assign": "^7.8.3",
     "@babel/preset-env": "^7.7.7",
     "@babel/preset-react": "^7.7.4",
+    "autoprefixer": "^9.7.4",
     "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.4.0",
@@ -45,9 +49,12 @@
     "html-webpack-plugin": "^3.2.0",
     "mini-css-extract-plugin": "^0.9.0",
     "node-sass": "^4.13.1",
+    "postcss-loader": "^3.0.0",
     "sass-loader": "^8.0.0",
     "webpack": "^4.41.4",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-dev-server": "^3.10.1",
+    "webpack-hot-middleware": "^2.25.0"
   }
 }

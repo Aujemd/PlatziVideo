@@ -9,7 +9,7 @@
             "plugins":[
                 "transform-class-properties",//Para poder usar classname en jsx sin problemas
                 "react-hot-loader/babel",//Para agregar carga dinamica al proyecto
-                "babel-plugintransform-object-assing",//
+                "@babel/plugin-transform-object-assign",//
             ]
         }
     }
