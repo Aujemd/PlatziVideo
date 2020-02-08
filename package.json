@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
     "start": "webpack-dev-server src/frontend/index.js --open --mode development",
-    "start:dev": "NODE_ENV=development nodemon src/server/index.js --exact babel-node",
+    "start:dev": "nodemon src/server/index.js --exact babel-node",
     "start:fix": "eslint --fix src/frontend"
   },
   "keywords": [],

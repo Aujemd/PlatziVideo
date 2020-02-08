@@ -1,15 +1,15 @@
 const path = require('path');
-const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer')
 const webpack = require('webpack')
 
 module.exports = { //Creando un nuevo modulo que vamos a exportar
     entry: './src/frontend/index.js', //Entrada principal
+    mode: 'development',
     output: {//Donde quedan los archivos resultantes despues del compilación
-        path: path.resolve(__dirname, 'dist'), //Detectar donde el dir donde estamos y el dir a donde queremos que bote los archivos
-        filename: 'bundle.js',
-        publicPath: '/', //Aqui es donde webpack va a botar todos los compilados
+        path: '/', //Detectar donde el dir donde estamos y el dir a donde queremos que bote los archivos
+        filename: 'assets/app.js',
+        publicPath: '/', //Aqui npm es donde webpack va a botar todos los compilados
     },
     resolve: {
         extensions: ['.js', '.jsx']
@@ -88,12 +88,8 @@ module.exports = { //Creando un nuevo modulo que vamos a exportar
                 ]
             }
         }),
-        new HtmlWebPackPlugin({
-            template: './public/index.html',
-            filename: './index.html'
-        }),
         new MiniCssExtractPlugin({
-            filename: 'assets/[name].css',
+            filename: 'assets/app.css',
           }),
     ]
 }
