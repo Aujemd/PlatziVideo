@@ -1,6 +1,3 @@
-﻿Integracion de Webpack con Express
+﻿Aplicando History y creando rutas para el servidor
 
-npm install webpack-dev-middleware --save-dev
-
-npm install --save-dev webpack-hot-middleware
-
+npm i history --exact
