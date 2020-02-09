@@ -1,5 +1,5 @@
-const render = html => {
-    return(`
+const render = (html, preloadedState) => {
+    return (`
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -11,10 +11,18 @@ const render = html => {
     </head>
     <body>
         <div id="app">${html}</div>
-        <script src="assets/app.js" type="text/javascript"></script>
-        <script src="assets/vendor.js" type="text/javascript"></script>
-    </body>
-    </html>    
+        <script>
+// WARNING: See the following for security issues around embedding JSON in HTML:
+// http://redux.js.org/recipes/ServerRendering.html#security-considerations
+window.PRELOADED_STATE = ${JSON.stringify(preloadedState).replace(
+        /</g,
+'\u003c'
+)}
+</script >
+    <script src="assets/app.js" type="text/javascript"></script>
+    <script src="assets/vendor.js" type="text/javascript"></script>
+    </body >
+    </html >
     `)
 }
 
