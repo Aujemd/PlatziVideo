@@ -4,6 +4,7 @@ const autoprefixer = require('autoprefixer')
 const webpack = require('webpack')
 const dotenv = require('dotenv')
 const TerserPlugin = require('terser-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin')
 
 dotenv.config()
 
@@ -97,5 +98,10 @@ module.exports = { //Creando un nuevo modulo que vamos a exportar
         new MiniCssExtractPlugin({
             filename: 'assets/app.css',
           }),
+        
+        process.env.NODE_ENV === 'production' ? new CompressionPlugin({
+            test: /\.js$|\.css/,
+            filename: '[path].gz',
+        }) : false,  
     ]
 }

@@ -1,3 +1,3 @@
-﻿Configurando el frontend y webpack para producción
+﻿Compresión de assets
 
-npm i terser-webpack-plugin
+npm i compression-webpack-plugin
