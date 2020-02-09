@@ -5,6 +5,7 @@ const webpack = require('webpack')
 const dotenv = require('dotenv')
 const TerserPlugin = require('terser-webpack-plugin')
 const CompressionPlugin = require('compression-webpack-plugin')
+const ManifestPlugin = require('webpack-manifest-plugin')
 
 dotenv.config()
 
@@ -14,7 +15,7 @@ module.exports = { //Creando un nuevo modulo que vamos a exportar
     mode: process.env.NODE_ENV,
     output: {//Donde quedan los archivos resultantes despues del compilación
         path: process.env.NODE_ENV === 'production' ? path.join(process.cwd(), './src/server/public') : '/', //Detectar donde el dir donde estamos y el dir a donde queremos que bote los archivos
-        filename: 'assets/app.js',
+        filename: process.env.NODE_ENV === 'production' ? 'assets/app-[hash].js' : 'assets/app.js',
         publicPath: '/', //Aqui npm es donde webpack va a botar todos los compilados
     },
     resolve: {
@@ -31,7 +32,7 @@ module.exports = { //Creando un nuevo modulo que vamos a exportar
                     chunks: 'all',
                     reuseExistingChunk: true,
                     priority: 1,
-                    filename: 'assets/vendor.js',
+                    filename: process.env.NODE_ENV === 'production' ? 'assets/vendor-[hash].js' : 'assets/vendor.js',
                     enforce: true,
                     test(module, chunks){
                         const name = module.nameForCondition && module.nameForCondition()
@@ -96,12 +97,14 @@ module.exports = { //Creando un nuevo modulo que vamos a exportar
             }
         }),
         new MiniCssExtractPlugin({
-            filename: 'assets/app.css',
+            filename: process.env.NODE_ENV === 'production' ? 'assets/app-[hash].css' : 'assets/app.css',
           }),
         
         process.env.NODE_ENV === 'production' ? new CompressionPlugin({
             test: /\.js$|\.css/,
             filename: '[path].gz',
-        }) : false,  
+        }) : false, 
+        
+        process.env.NODE_ENV === 'production' ? new ManifestPlugin() : false,
     ]
 }
