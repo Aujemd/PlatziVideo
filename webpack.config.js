@@ -2,12 +2,17 @@ const path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const autoprefixer = require('autoprefixer')
 const webpack = require('webpack')
+const dotenv = require('dotenv')
+const TerserPlugin = require('terser-webpack-plugin')
+
+dotenv.config()
 
 module.exports = { //Creando un nuevo modulo que vamos a exportar
+    devtool: process.env.NODE_ENV === 'production' ? 'hidden-source-map' : 'cheap-source-map',
     entry: './src/frontend/index.js', //Entrada principal
-    mode: 'development',
+    mode: process.env.NODE_ENV,
     output: {//Donde quedan los archivos resultantes despues del compilación
-        path: '/', //Detectar donde el dir donde estamos y el dir a donde queremos que bote los archivos
+        path: process.env.NODE_ENV === 'production' ? path.join(process.cwd(), './src/server/public') : '/', //Detectar donde el dir donde estamos y el dir a donde queremos que bote los archivos
         filename: 'assets/app.js',
         publicPath: '/', //Aqui npm es donde webpack va a botar todos los compilados
     },
@@ -15,6 +20,7 @@ module.exports = { //Creando un nuevo modulo que vamos a exportar
         extensions: ['.js', '.jsx']
     },
     optimization:{
+        minimizer: process.env.NODE_ENV === 'production' ? [new TerserPlugin()] : [] ,
         splitChunks: {
             chunks: 'async',
             name: true,

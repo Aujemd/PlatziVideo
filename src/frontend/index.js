@@ -8,7 +8,14 @@ import {Router} from 'react-router-dom'
 import { createBrowserHistory } from 'history'
 
 if(typeof window !== 'undefined'){
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+
+let composeEnhancers;
+
+if(process.env.NODE_ENV === 'producction'){
+  composeEnhancers = compose
+}else{
+  composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
+}
 
 const preloadedState = window.PRELOADED_STATE
 
