@@ -1,3 +1,4 @@
-﻿Definiendo la función main para renderizado desde el servidor
-npm i react-router-config
-npm i ignore-styles
+﻿Assets require 
+
+npm i asset-require-hook
+
